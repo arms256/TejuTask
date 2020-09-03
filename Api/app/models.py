@@ -4,17 +4,17 @@ from django.db import models
 
 
 class Job(models.Model):
-    id = models.Integer()
-    name = models.CharField()
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=120)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
 
 class Applicant(models.Model):
-    id = models.Integer()
-    name = models.CharField()
-    email = models.CharField()
-    website = models.CharField()
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=60)
+    email = models.EmailField()
+    website = models.CharField(max_length=120)
     cover_letter = models.TextField()
     job_id = models.ForeignKey(Job, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -22,8 +22,8 @@ class Applicant(models.Model):
 
 
 class Skill(models.Model):
-    id = models.Integer()
-    name = models.CharField()
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=60)
     applicant_id = models.ForeignKey(Applicant, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
