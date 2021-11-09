@@ -24,6 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('job/', views.Jobs.as_view()),
     path('applicant/', views.Applicants.as_view()),
-    path('skill/', views.Skills.as_view()),
+    path('skill/', views.Skills.as_()),
 ]
 
